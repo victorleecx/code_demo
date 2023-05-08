@@ -19,11 +19,12 @@ def main():
 
     # 创建主引擎
     main_engine: MainEngine = MainEngine(event_engine)
-    main_engine.add_gateway(CtpGateway)
+    main_engine.add_gateway(CtpGateway, "CTP")
     main_engine.add_gateway(IbGateway)
 
     # 创建策略引擎
     engine: StrategyEngine = StrategyEngine(main_engine, event_engine)      # noqa
+    # main_engine.add_engine(StrategyEngine)
 
     # 创建图形控件
     widget: SimpleWidget = SimpleWidget(main_engine, event_engine)
