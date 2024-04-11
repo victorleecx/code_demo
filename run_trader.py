@@ -5,6 +5,7 @@ from vnpy.trader.ui import MainWindow, create_qapp
 from vnpy_ctp import CtpGateway
 
 from my_simplestrategy import SimpleStrategyApp
+from my_simplestrategy.engine import StrategyEngine
 
 
 def main():
@@ -15,7 +16,8 @@ def main():
     main_engine = MainEngine(event_engine)
 
     main_engine.add_gateway(CtpGateway)
-    main_engine.add_app(SimpleStrategyApp)
+    # main_engine.add_app(SimpleStrategyApp)
+    main_engine.add_engine(StrategyEngine)
 
     main_window = MainWindow(main_engine, event_engine)
     main_window.showMaximized()
